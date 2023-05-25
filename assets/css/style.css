@@ -1,3 +1,24 @@
-body {
-    background-color: blue;
+/* container */
+
+.columns {
+    display:flex;
+    text-align: center;
+}
+
+/* columns */
+.columns > * {
+    width:calc(100% / 3);
+    padding:1rem;
+}
+
+#left {
+background-color: lightblue;
+}
+
+#centre {
+    background-color: lightcoral;
+}
+
+#right {
+    background-color: lightblue;
 }
