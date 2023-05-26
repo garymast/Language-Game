@@ -5,6 +5,8 @@ let score = document.getElementById("score");
 
 let result = 0;
 let hitPosition;
+let currentTime = 10;
+let timerId = null;
 
 function randomSquare() {
     for (let square of squares) {
@@ -29,9 +31,22 @@ for (let square of squares) {
 }
 
 function moveMole() {
-    let timerId = null;
     timerId = setInterval(randomSquare, 750)
 }
 
 moveMole();
 // Attach this to a start game button
+
+function countDown() {
+    currentTime--;
+    timeLeft.textContent = currentTime;
+
+    if (currentTime == 0) {
+        clearInterval(countDownTimerId);
+        clearInterval(timerId);
+        alert('game over! Final score: ' + result)
+    }
+}
+
+let countDownTimerId = setInterval(countDown, 1000);
+
