@@ -2,11 +2,26 @@ let squares = document.getElementsByClassName("square");
 let mole = document.getElementsByClassName("mole");
 let timeLeft = document.getElementById("time-left");
 let score = document.getElementById("score");
+let engPhrase = document.getElementById("eng-phrase");
 
 let result = 0;
 let hitPosition;
 let currentTime = 10;
 let timerId = null;
+
+let germanNumbers = [
+    ["zero",["null"]],
+    ["one",["eins"]],
+    ["two",["zwei"]],
+    ["three",["drei"]],
+    ["four",["vier"]],
+    ["five",["fünf"]],
+    ["six",["sechs"]],
+    ["seven",["sieben"]],
+    ["eight",["acht"]],
+    ["nine",["neun"]],
+    ["ten",["zehn"]]    
+]
 
 function randomSquare() {
     for (let square of squares) {
@@ -18,6 +33,9 @@ function randomSquare() {
 
     hitPosition = randomSquare.id;
     // Ensure that the random square isn't the previous mole square
+
+    assignPhrase(randomSquare, germanNumbers)
+    
 }
 
 for (let square of squares) {
@@ -49,4 +67,13 @@ function countDown() {
 }
 
 let countDownTimerId = setInterval(countDown, 1000);
+
+// Choose a phrase and assign it to the relevant html fields
+function assignPhrase(square, genre) {
+
+    let r = Math.floor(Math.random()*genre.length)
+
+    engPhrase.textContent = genre[r][0];
+    square.textContent = genre[r][1];
+}
 

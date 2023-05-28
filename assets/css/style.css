@@ -1,23 +1,31 @@
 /* container */
 body {
     text-align: center;
+    box-sizing: border-box;
 }
 .container {
     margin: 0 auto;
     max-width: 960px;
     background-color: orange;
+    /* display: flex; */
 }
 
 .grid {
     display:flex;
     text-align: center;
     min-height: 50vh;
+    
+}
+
+#gridBox {
+    width: 100%;
 }
 
 /* columns */
 .grid > * {
-    width:calc(100% / 3);
+    width:calc(100%);
     padding:1rem;
+    text-orientation: upright;
 }
 
 .square {
