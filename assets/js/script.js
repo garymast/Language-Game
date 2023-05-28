@@ -9,6 +9,7 @@ let result = 0;
 let hitPosition;
 let currentTime = 10;
 let timerId = null;
+let countDownTimerId;
 
 let germanNumbers = [
     ["zero",["null"]],
@@ -24,13 +25,28 @@ let germanNumbers = [
     ["ten",["zehn"]]    
 ]
 
+document.addEventListener("DOMContentLoaded", function () {
+    let button = document.getElementById("btn");
+
+        button.addEventListener("click", function () {
+            if (this.getAttribute("data-type") === "submit") {
+                console.log("buttonclicked");
+                // checkAnswer();
+                moveMole();
+                startCount();
+            } ;
+        });
+    
+    // runGame("addition");
+
+});
 
 function randomSquare() {
     for (let square of squares) {
         square.classList.remove('mole');
     }
 
-    let randomSquare = squares[Math.floor(Math.random() * 3)];
+    let randomSquare = squares[Math.floor(Math.random() * 4)];
     randomSquare.classList.add('mole');
 
     hitPosition = randomSquare.id;
@@ -54,8 +70,11 @@ function moveMole() {
     timerId = setInterval(randomSquare, 750)
 }
 
-moveMole();
+
 // Attach this to a start game button
+function startCount() {
+countDownTimerId = setInterval(countDown, 1000);
+}
 
 function countDown() {
     currentTime--;
@@ -68,7 +87,7 @@ function countDown() {
     }
 }
 
-let countDownTimerId = setInterval(countDown, 1000);
+
 
 // Choose a phrase and assign it to the relevant html fields
 function assignPhrase(square, genre) {
