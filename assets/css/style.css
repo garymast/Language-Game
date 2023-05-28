@@ -1,20 +1,45 @@
 /* container */
 body {
-
     text-align: center;
     box-sizing: border-box;
-    
-    /* display: flex;
-    flex-direction: column; */
+    margin: 0;
+    padding: 0;
 }
+
+* {
+    box-sizing: border-box;
+}
+
 .container {
-    
     margin: 0 auto;
     max-width: 960px;
-    background-color: white;
-    
-    
+    background-color: white;  
+    /* margin: 0 15px; */
 }
+
+#header {
+    display: flex;
+}
+
+.top-box{
+    height: 100px;
+    /* width: 33.333%; */
+    border-radius: 5px;
+    background-color: white;
+    border: solid 1px black;
+}
+
+#eng-phrase-box, #time-container {
+    width: 40%;
+}
+
+#score-container {
+    width: 20%;
+}
+
+/* #time-container {
+    width: 40%;
+} */
 
 .grid {
     text-align: center;
@@ -33,7 +58,6 @@ body {
 }
 
 .score-area {
-    /* min-height: 15vh; */
     background-color: lightcyan;
 }
 
@@ -41,7 +65,7 @@ body {
     height: 100vh;
     background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('../images/bavaria_001.jpg') repeat center center;
     background-size: 40vh;
-    padding-top: 20px;
+    padding: 20px 20px 0 20px;
 }
 
 .mole {

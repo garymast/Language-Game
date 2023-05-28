@@ -24,6 +24,7 @@ let germanNumbers = [
     ["ten",["zehn"]]    
 ]
 
+
 function randomSquare() {
     for (let square of squares) {
         square.classList.remove('mole');
