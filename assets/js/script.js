@@ -9,7 +9,7 @@ let result = 0;
 let hitPosition;
 let currentTime = 10;
 let timerId = null;
-let countDownTimerId;
+let countDownTimerId = null;
 
 let germanNumbers = [
     ["zero",["null"]],
@@ -67,12 +67,14 @@ for (let square of squares) {
 }
 
 function moveMole() {
-    timerId = setInterval(randomSquare, 750)
+    clearInterval(timerId);
+    timerId = setInterval(randomSquare, 1000)
 }
 
 
 // Attach this to a start game button
 function startCount() {
+clearInterval(countDownTimerId);
 countDownTimerId = setInterval(countDown, 1000);
 }
 
