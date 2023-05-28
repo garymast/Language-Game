@@ -1,3 +1,4 @@
+
 let squares = document.getElementsByClassName("square");
 let mole = document.getElementsByClassName("mole");
 let timeLeft = document.getElementById("time-left");
@@ -74,6 +75,7 @@ function assignPhrase(square, genre) {
     let r = Math.floor(Math.random()*genre.length)
 
     engPhrase.textContent = genre[r][0];
-    square.textContent = genre[r][1];
+    square.firstChild.textContent = genre[r][1];
+    
 }
 

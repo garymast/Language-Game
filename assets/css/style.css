@@ -1,51 +1,47 @@
 /* container */
 body {
+
     text-align: center;
     box-sizing: border-box;
+    
+    /* display: flex;
+    flex-direction: column; */
 }
 .container {
+    
     margin: 0 auto;
     max-width: 960px;
-    background-color: orange;
-    /* display: flex; */
-}
-
-.grid {
-    display:flex;
-    text-align: center;
-    min-height: 50vh;
+    background-color: white;
+    
     
 }
 
-#gridBox {
-    width: 100%;
+.grid {
+    text-align: center;
 }
+
 
 /* columns */
 .grid > * {
-    width:calc(100%);
-    padding:1rem;
+    /* width:calc(100%); */
+    /* padding:1rem; */
     text-orientation: upright;
 }
 
 .square {
     border: solid 1px black;
 }
-#s1 {
-
-}
-
-#s2 {
-
-}
-
-#s3 {
-
-}
 
 .score-area {
     /* min-height: 15vh; */
     background-color: lightcyan;
+}
+
+#bg {
+    height: 100vh;
+    background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('../images/bavaria_001.jpg') repeat center center;
+    background-size: 40vh;
+    padding-top: 20px;
 }
 
 .mole {

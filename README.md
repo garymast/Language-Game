@@ -106,3 +106,11 @@ Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` f
 ---
 
 Happy coding!
+
+Whac a mole tutorial youtube tutorial
+https://www.youtube.com/watch?v=rJU3tHLgb_c
+
+bavaria background image <a href="https://www.freepik.com/free-vector/oktoberfest-blue-seamless-rhombus-background-vector-illustration_24450729.htm#query=bavaria%20pattern&position=0&from_view=keyword&track=ais">Image by svstudioart</a> on Freepik
+
+Love Maths walkthrough
+
