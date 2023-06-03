@@ -9,6 +9,7 @@ const voices = [];
 
 let result = 0;
 let hitPosition;
+let lastHit;
 let currentTime = timeLeft.textContent;
 let timerId = null;
 let countDownTimerId = null;
@@ -62,16 +63,25 @@ document.addEventListener("DOMContentLoaded", function () {
 function randomSquare() {
     for (let square of squares) {
         square.classList.remove('mole');
+        square.firstChild.textContent = null;
     }
 
+    while (true) {
     let randomSquare = squares[Math.floor(Math.random() * 4)];
-    randomSquare.classList.add('mole');
-
-    hitPosition = randomSquare.id;
-    // Ensure that the random square isn't the previous mole square
-
-    assignPhrase(randomSquare, germanNumbers)
     
+
+    if (lastHit != randomSquare.id) {
+        console.log("Different - Exit");
+        randomSquare.classList.add('mole');
+        hitPosition = randomSquare.id;
+        // Ensure that the random square isn't the previous mole square
+        lastHit = randomSquare.id;
+        assignPhrase(randomSquare, germanNumbers)
+        break;
+} else {
+    console.log("Same - Loop Again")
+}
+}
 }
 
 for (let square of squares) {
@@ -80,6 +90,7 @@ for (let square of squares) {
             result++;
             score.textContent = result;
             hitPosition = null;
+            
         }
     })
 }
