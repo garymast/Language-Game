@@ -68,10 +68,12 @@ h2, h3 {
 
 /* columns */
 .grid > * {
-    text-orientation: upright;
+    /* text-orientation: upright; */
     margin-top: 20px;
     background-color: white;
     border-radius: 37.5px;
+    color: white;
+    font-size: 150%;
 }
 
 .square {
@@ -92,5 +94,5 @@ h2, h3 {
 }
 
 .mole {
-    background-color: lightcoral;
+    background: linear-gradient(#000 33.333%, #FF0000 33.33% 66.666%, #FFCC00 66.666%);
 }
