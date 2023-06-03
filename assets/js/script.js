@@ -4,26 +4,45 @@ let mole = document.getElementsByClassName("mole");
 let timeLeft = document.getElementById("time-left");
 let score = document.getElementById("score");
 let engPhrase = document.getElementById("eng-phrase");
+const synth = window.speechSynthesis;
+const voices = [];
 
 let result = 0;
 let hitPosition;
-let currentTime = 10;
+let currentTime = timeLeft.textContent;
 let timerId = null;
 let countDownTimerId = null;
 
 let germanNumbers = [
-    ["zero",["null"]],
-    ["one",["eins"]],
-    ["two",["zwei"]],
-    ["three",["drei"]],
-    ["four",["vier"]],
-    ["five",["fünf"]],
-    ["six",["sechs"]],
-    ["seven",["sieben"]],
-    ["eight",["acht"]],
-    ["nine",["neun"]],
-    ["ten",["zehn"]]    
+    ["zero",["Null"]],
+    ["one",["Eins"]],
+    ["two",["Zwei"]],
+    ["three",["Drei"]],
+    ["four",["Vier"]],
+    ["five",["Fünf"]],
+    ["six",["Sechs"]],
+    ["seven",["Sieben"]],
+    ["eight",["Acht"]],
+    ["nine",["Neun"]],
+    ["ten",["Zehn"]]    
 ]
+
+function populateVoiceList() {
+    voices = synth.getVoices();
+  
+    for (const voice of voices) {
+      const option = document.createElement("option");
+      option.textContent = `${voice.name} (${voice.lang})`;
+  
+      if (voice.default) {
+        option.textContent += " — DEFAULT";
+      }
+  
+      option.setAttribute("data-lang", voice.lang);
+      option.setAttribute("data-name", voice.name);
+      voiceSelect.appendChild(option);
+    }
+  }
 
 document.addEventListener("DOMContentLoaded", function () {
     let button = document.getElementById("btn");
@@ -36,8 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 startCount();
             } ;
         });
-    
-    // runGame("addition");
+
 
 });
 
@@ -68,7 +86,7 @@ for (let square of squares) {
 
 function moveMole() {
     clearInterval(timerId);
-    timerId = setInterval(randomSquare, 1000)
+    timerId = setInterval(randomSquare, 1500)
 }
 
 
@@ -99,5 +117,13 @@ function assignPhrase(square, genre) {
     engPhrase.textContent = genre[r][0];
     square.firstChild.textContent = genre[r][1];
     
+    speakWord(genre[r][1]);
 }
 
+function speakWord(word) {
+
+        const utterThis = new SpeechSynthesisUtterance(word);
+        utterThis.lang = "de-DE";
+        // Set to German
+        synth.speak(utterThis);
+}
