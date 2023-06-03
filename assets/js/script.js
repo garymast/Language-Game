@@ -10,6 +10,7 @@ const voices = [];
 let result = 0;
 let hitPosition;
 let lastHit;
+let arrayCopy = []
 let currentTime = timeLeft.textContent;
 let timerId = null;
 let countDownTimerId = null;
@@ -28,23 +29,6 @@ let germanNumbers = [
     ["ten",["Zehn"]]    
 ]
 
-function populateVoiceList() {
-    voices = synth.getVoices();
-  
-    for (const voice of voices) {
-      const option = document.createElement("option");
-      option.textContent = `${voice.name} (${voice.lang})`;
-  
-      if (voice.default) {
-        option.textContent += " — DEFAULT";
-      }
-  
-      option.setAttribute("data-lang", voice.lang);
-      option.setAttribute("data-name", voice.name);
-      voiceSelect.appendChild(option);
-    }
-  }
-
 document.addEventListener("DOMContentLoaded", function () {
     let button = document.getElementById("btn");
 
@@ -52,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (this.getAttribute("data-type") === "submit") {
                 console.log("buttonclicked");
                 // checkAnswer();
+                
                 moveMole();
                 startCount();
             } ;
@@ -76,7 +61,7 @@ function randomSquare() {
         hitPosition = randomSquare.id;
         // Ensure that the random square isn't the previous mole square
         lastHit = randomSquare.id;
-        assignPhrase(randomSquare, germanNumbers)
+        assignPhrase(randomSquare)
         break;
 } else {
     console.log("Same - Loop Again")
@@ -96,6 +81,7 @@ for (let square of squares) {
 }
 
 function moveMole() {
+    arrayCopy = germanNumbers;
     clearInterval(timerId);
     timerId = setInterval(randomSquare, 1500)
 }
@@ -119,16 +105,44 @@ function countDown() {
 }
 
 
-
 // Choose a phrase and assign it to the relevant html fields
-function assignPhrase(square, genre) {
+function assignPhrase(square) {
 
-    let r = Math.floor(Math.random()*genre.length)
+    if (arrayCopy.length == 0) {
+        console.log("It's 0");
+        // arrayCopy = [];
+        // arrayCopy = germanNumbers;
+        arrayCopy = [
+            ["zero",["Null"]],
+            ["one",["Eins"]],
+            ["two",["Zwei"]],
+            ["three",["Drei"]],
+            ["four",["Vier"]],
+            ["five",["Fünf"]],
+            ["six",["Sechs"]],
+            ["seven",["Sieben"]],
+            ["eight",["Acht"]],
+            ["nine",["Neun"]],
+            ["ten",["Zehn"]]    
+        ]
+        console.log(arrayCopy);
+    }
 
-    engPhrase.textContent = genre[r][0];
-    square.firstChild.textContent = genre[r][1];
+    // genre.sort();
+    let r = Math.floor(Math.random()*arrayCopy.length)
+
+    engPhrase.textContent = arrayCopy[r][0];
+    square.firstChild.textContent = arrayCopy[r][1];
     
-    speakWord(genre[r][1]);
+    speakWord(arrayCopy[r][1]);
+    
+    console.log(arrayCopy.length)
+    
+    arrayCopy.splice(r, 1);
+     console.log(r);
+    // if (arrayCopy.length == 0)
+    
+    // genre = arrayCopy;
 }
 
 function speakWord(word) {
