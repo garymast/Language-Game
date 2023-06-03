@@ -10,10 +10,12 @@ h1 {
     margin : 0;
     font-size: 300%;
     letter-spacing: 3px;
+    text-transform:uppercase;
 }
 
 h2, h3 {
     margin : 0;
+    text-transform: capitalize;
 }
 
 * {
