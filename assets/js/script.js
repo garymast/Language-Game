@@ -15,6 +15,8 @@ let currentTime = timeLeft.textContent;
 let timerId = null;
 let countDownTimerId = null;
 
+
+
 let germanNumbers = [
     ["zero",["Null"]],
     ["one",["Eins"]],

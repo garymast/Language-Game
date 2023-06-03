@@ -127,3 +127,29 @@ h2, h3 {
 .mole {
     background: linear-gradient(#000 33.333%, #FF0000 33.33% 66.666%, #FFCC00 66.666%);
 }
+
+i {
+    font-size: 500%;
+    /* margin: 1%;
+    padding: 5%; */
+    color: green;
+}
+
+#btn {
+    background-color: transparent;
+    border: none;
+}
+
+#next-btn {
+    background-color: transparent;
+    border: none;
+}
+
+#next-btn i{
+    color: grey;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
