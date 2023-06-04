@@ -132,7 +132,7 @@ i {
     font-size: 500%;
     /* margin: 1%;
     padding: 5%; */
-    color: green;
+    color: #59d259;
 }
 
 
@@ -149,8 +149,3 @@ i {
 #next-btn i{
     color: grey;
 }
-
-/* #disabled {
-    /* opacity: 0.6; */
-    cursor: not-allowed;
-  } */

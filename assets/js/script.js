@@ -6,6 +6,7 @@ let score = document.getElementById("score");
 let engPhrase = document.getElementById("eng-phrase");
 const synth = window.speechSynthesis;
 const voices = [];
+let startTime = 30;
 
 let result = 0;
 let hitPosition;
@@ -77,13 +78,20 @@ for (let square of squares) {
             result++;
             score.textContent = result;
             hitPosition = null;
-            
+            if (result >= germanNumbers.length) {
+                score.parentElement.style.backgroundColor = "#59d259";
+                console.log("<=length")
+                // Add code here to allow click next
+                allowNext();
+            }
         }
     })
 }
 
 function moveMole() {
-    arrayCopy = germanNumbers;
+    // arrayCopy = germanNumbers;
+    // Array = Array doesn't make a copy, just a reference to same object
+    arrayCopy = [].concat(germanNumbers);
     clearInterval(timerId);
     timerId = setInterval(randomSquare, 1500)
 }
@@ -91,6 +99,8 @@ function moveMole() {
 
 // Attach this to a start game button
 function startCount() {
+timeLeft.textContent = startTime;
+currentTime = startTime;
 clearInterval(countDownTimerId);
 countDownTimerId = setInterval(countDown, 1000);
 }
@@ -102,7 +112,7 @@ function countDown() {
     if (currentTime == 0) {
         clearInterval(countDownTimerId);
         clearInterval(timerId);
-        alert('game over! Final score: ' + result)
+        // alert('game over! Final score: ' + result)
     }
 }
 
@@ -112,21 +122,7 @@ function assignPhrase(square) {
 
     if (arrayCopy.length == 0) {
         console.log("It's 0");
-        // arrayCopy = [];
-        // arrayCopy = germanNumbers;
-        arrayCopy = [
-            ["zero",["Null"]],
-            ["one",["Eins"]],
-            ["two",["Zwei"]],
-            ["three",["Drei"]],
-            ["four",["Vier"]],
-            ["five",["Fünf"]],
-            ["six",["Sechs"]],
-            ["seven",["Sieben"]],
-            ["eight",["Acht"]],
-            ["nine",["Neun"]],
-            ["ten",["Zehn"]]    
-        ]
+        arrayCopy = [].concat(germanNumbers);
         console.log(arrayCopy);
     }
 
@@ -142,9 +138,6 @@ function assignPhrase(square) {
     
     arrayCopy.splice(r, 1);
      console.log(r);
-    // if (arrayCopy.length == 0)
-    
-    // genre = arrayCopy;
 }
 
 function speakWord(word) {
@@ -163,3 +156,24 @@ splashScreen.addEventListener('click',()=>{
     splashScreen.classList.add('hidden')
   },610)
 })
+
+function allowNext() {
+    let next = document.getElementById('next-btn');
+    next.style.cursor = "pointer";
+    next.firstChild.style.color = "#59d259";
+    addNextListener(next);
+}
+
+function addNextListener(next) {
+    next.addEventListener("click", function () {
+        if (this.getAttribute("data-type") === "submit") {
+            console.log("nextbuttonclicked");
+            nextLevel();
+        } ;
+    });
+
+}
+
+function nextLevel() {
+
+}
