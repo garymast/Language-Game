@@ -11,7 +11,8 @@ let startTime = 30;
 let result = 0;
 let hitPosition;
 let lastHit;
-let arrayCopy = []
+let arrayCopy = [];
+let arrayCopyOthers = [];
 let currentTime = timeLeft.textContent;
 let timerId = null;
 let countDownTimerId = null;
@@ -53,10 +54,8 @@ function startStageOne() {
 }
 
 function randomSquare() {
-    for (let square of squares) {
-        square.classList.remove('mole');
-        square.firstChild.textContent = null;
-    }
+
+    removeMoleClass();
 
     while (true) {
     // let randomSquare = squares[Math.floor(Math.random() * 4)];
@@ -82,7 +81,8 @@ for (let square of squares) {
             result++;
             score.textContent = result;
             hitPosition = null;
-            if (result >= germanNumbers.length) {
+            if (result >= 0) {
+                // if (result >= germanNumbers.length)
                 score.parentElement.style.backgroundColor = "#59d259";
                 console.log("<=length")
                 // Add code here to allow click next
@@ -192,13 +192,11 @@ function clearScreen() {
     score.textContent = "";
     score.parentElement.style.backgroundColor = "white";
     engPhrase.textContent = "Ready!";
-    for (let square of squares) {
-        square.classList.remove('mole');
-        square.firstChild.textContent = null;
-    }
+    removeMoleClass();
     clearInterval(timerId);
     clearInterval(countDownTimerId);
     result = 0;
+    hitPosition = null;
 }
 
 function addStageClass () {
@@ -211,12 +209,16 @@ function startStageTwo() {
     startCount();
     setMole();
     addMoleClass();
+    
 }
 
 function setMole() {
     arrayCopy = [].concat(germanNumbers);
+
     let square = getRandomSquare();
     assignPhrase(square);
+    hitPosition = square.id;
+    assignOtherSquares(square);
 }
 
 function getRandomSquare() {
@@ -230,3 +232,44 @@ function addMoleClass() {
     }
 }
     
+function removeMoleClass() {
+    for (let square of squares) {
+        square.classList.remove('mole');
+        square.firstChild.textContent = "";
+    }
+}
+
+function assignOtherSquares(square) {
+    let mole = square.firstChild.textContent;
+    let word;
+
+    for (i=0 ; i<=2 ; i++) {
+        let r = Math.floor(Math.random()*arrayCopy.length)
+        word = germanNumbers[r][1];
+        if (mole == word) {
+            console.log('same - look again');
+            i--;
+        } else {
+            arrayCopyOthers[i] = word;
+        }
+    }
+
+    setOtherSquares(arrayCopyOthers);
+    // Make sure to empty this array after each round
+    arrayCopyOthers.length = 0;
+}
+
+// Put the random words in the empty squares
+function setOtherSquares(words) {
+    console.log(words[1]);
+
+    for (let i=0 ; i<=2 ; i++) {
+
+        for(let square of squares) {
+            if (square.firstChild.textContent == "") {
+                square.firstChild.textContent = words[i];
+                break;
+            }
+        }
+    }
+}
