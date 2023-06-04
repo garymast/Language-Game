@@ -17,7 +17,8 @@ let currentTime = timeLeft.textContent;
 let timerId = null;
 let countDownTimerId = null;
 
-
+// Check alternate squares aren't same as eachother
+// Check squares not repeated one after another in stage 2
 
 let germanNumbers = [
     ["zero",["Null"]],
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function startStageOne() {
+    // clearScore();
     moveMole();
     startCount();
 }
@@ -79,33 +81,51 @@ for (let square of squares) {
     square.addEventListener('mousedown', () => {
         let button = document.getElementById("btn");
 
-        // Stage 2 Behavior
+        // Stage 2 Correct Behavior
         if (square.id == hitPosition && button.classList.contains('S2')) {
             console.log("this works stage 2");
             result++;
             score.textContent = result;
             hitPosition = null;
-            // change mole background to WebGL2RenderingContext, delay .25 seconds
-            addGreenCorrect(square);
-            removeMoleClass();
-            // Need to check if wrong 
 
-            if (result >= 0) {
-                // if (result >= germanNumbers.length)
-                score.parentElement.style.backgroundColor = "#59d259";
+            removeMoleClass();
+            addGreenSquare(square);
+            if (result >= germanNumbers.length) {
+  
+            score.parentElement.style.backgroundColor = "#59d259";
             }
+            setTimeout(function(){
+            addWhiteSquare(square);
+            NextSet();
+            console.log("executed")
+            }, 300);
+            
         } 
+
+        // Stage 2 Incorrect Behavior
+        else if (square.id != hitPosition && button.classList.contains('S2')) {
+            console.log("this works stage 2 incorrect");
+
+            hitPosition = null;
+
+            removeMoleClass();
+            addRedSquare(square);
+
+            setTimeout(function(){
+            addWhiteSquare(square);
+            NextSet();
+            console.log("executed")
+            }, 300);
+        }
         
-        // Stage 1 Behavior
+        // Stage 1 Correct Behavior
         else if (square.id == hitPosition){
             result++;
             score.textContent = result;
             hitPosition = null;
-            if (result >= 0) {
-                // if (result >= germanNumbers.length)
+            if (result >= germanNumbers.length) {
                 score.parentElement.style.backgroundColor = "#59d259";
                 console.log("<=length")
-                // Add code here to allow click next
                 allowNext();
         }
     }
@@ -138,7 +158,10 @@ function countDown() {
         clearInterval(countDownTimerId);
         clearInterval(timerId);
 
-        // alert('game over! Final score: ' + result)
+        setTimeout(function(){
+            alert('Well Done! Final score: ' + result)
+            }, 1000);
+        
     }
 }
 
@@ -210,14 +233,18 @@ addStageClass();
 
 function clearScreen() {
     timeLeft.textContent = "";
-    score.textContent = "";
-    score.parentElement.style.backgroundColor = "white";
     engPhrase.textContent = "Ready!";
     removeMoleClass();
     clearInterval(timerId);
     clearInterval(countDownTimerId);
-    result = 0;
     hitPosition = null;
+    clearScore();
+}
+
+function clearScore() {
+    score.textContent = "";
+    score.parentElement.style.backgroundColor = "white";
+    result = 0;
 }
 
 function addStageClass () {
@@ -227,10 +254,14 @@ function addStageClass () {
 
 function startStageTwo() {
     console.log("Stage 2 started")
+    clearScore();
     startCount();
+    NextSet();
+}
+
+function NextSet() {
     setMole();
     addMoleClass();
-    
 }
 
 function setMole() {
@@ -295,9 +326,18 @@ function setOtherSquares(words) {
     }
 }
 
-function addGreenCorrect(square) {
+function addGreenSquare(square) {
     square.style.backgroundColor =  "#59d259";
-    setTimeout(function(){
-        square.style.backgroundColor =  "white";
-    }, 300);
+    console.log("called green Correct");
 }
+
+function addWhiteSquare(square) {
+    square.style.backgroundColor =  "white";
+    console.log("called green Remove");
+}
+
+function addRedSquare(square) {
+    square.style.backgroundColor =  "red";
+    console.log("called green Remove");
+}
+
