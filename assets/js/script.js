@@ -153,6 +153,7 @@ function speakWord(word) {
         utterThis.lang = "de-DE";
         // Set to German
         synth.speak(utterThis);
+        console.log("spoken")
 }
 
 var splashScreen = document.querySelector('.splash');
