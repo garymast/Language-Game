@@ -19,6 +19,7 @@ let countDownTimerId = null;
 
 // Check alternate squares aren't same as eachother
 // Check squares not repeated one after another in stage 2
+// Add option to turn off sound
 
 let germanNumbers = [
     ["zero",["Null"]],
@@ -69,7 +70,7 @@ function randomSquare() {
         hitPosition = randomSquare.id;
         // Ensure that the random square isn't the previous mole square
         lastHit = randomSquare.id;
-        assignPhrase(randomSquare)
+        assignPhrase(randomSquare, "DE")
         break;
 } else {
     console.log("Same - Loop Again")
@@ -167,7 +168,7 @@ function countDown() {
 
 
 // Choose a phrase and assign it to the relevant html fields
-function assignPhrase(square) {
+function assignPhrase(square, speak) {
 
     if (arrayCopy.length == 0) {
         console.log("It's 0");
@@ -182,7 +183,11 @@ function assignPhrase(square) {
     square.firstChild.textContent = arrayCopy[r][1];
     console.log("square contents are:" + square.firstChild.textContent)
     
+    if (speak == "DE") {
     speakWord(arrayCopy[r][1]);
+    } else {
+        // speakWord(arrayCopy[r][0]);
+    }
     
     console.log(arrayCopy.length)
     
@@ -268,7 +273,7 @@ function setMole() {
     arrayCopy = [].concat(germanNumbers);
 
     let square = getRandomSquare();
-    assignPhrase(square);
+    assignPhrase(square, "EN");
     hitPosition = square.id;
     assignOtherSquares(square);
 }
