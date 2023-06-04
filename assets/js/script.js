@@ -77,7 +77,27 @@ function randomSquare() {
 
 for (let square of squares) {
     square.addEventListener('mousedown', () => {
-        if (square.id == hitPosition) {
+        let button = document.getElementById("btn");
+
+        // Stage 2 Behavior
+        if (square.id == hitPosition && button.classList.contains('S2')) {
+            console.log("this works stage 2");
+            result++;
+            score.textContent = result;
+            hitPosition = null;
+            // change mole background to WebGL2RenderingContext, delay .25 seconds
+            addGreenCorrect(square);
+            removeMoleClass();
+            // Need to check if wrong 
+
+            if (result >= 0) {
+                // if (result >= germanNumbers.length)
+                score.parentElement.style.backgroundColor = "#59d259";
+            }
+        } 
+        
+        // Stage 1 Behavior
+        else if (square.id == hitPosition){
             result++;
             score.textContent = result;
             hitPosition = null;
@@ -87,9 +107,10 @@ for (let square of squares) {
                 console.log("<=length")
                 // Add code here to allow click next
                 allowNext();
-            }
         }
-    })
+    }
+    
+}) ;
 }
 
 function moveMole() {
@@ -272,4 +293,11 @@ function setOtherSquares(words) {
             }
         }
     }
+}
+
+function addGreenCorrect(square) {
+    square.style.backgroundColor =  "#59d259";
+    setTimeout(function(){
+        square.style.backgroundColor =  "white";
+    }, 300);
 }
