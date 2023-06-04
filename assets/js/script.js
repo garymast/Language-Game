@@ -59,8 +59,8 @@ function randomSquare() {
     }
 
     while (true) {
-    let randomSquare = squares[Math.floor(Math.random() * 4)];
-    
+    // let randomSquare = squares[Math.floor(Math.random() * 4)];
+    let randomSquare = getRandomSquare();
 
     if (lastHit != randomSquare.id) {
         console.log("Different - Exit");
@@ -116,6 +116,7 @@ function countDown() {
     if (currentTime == 0) {
         clearInterval(countDownTimerId);
         clearInterval(timerId);
+
         // alert('game over! Final score: ' + result)
     }
 }
@@ -135,13 +136,14 @@ function assignPhrase(square) {
 
     engPhrase.textContent = arrayCopy[r][0];
     square.firstChild.textContent = arrayCopy[r][1];
+    console.log("square contents are:" + square.firstChild.textContent)
     
     speakWord(arrayCopy[r][1]);
     
     console.log(arrayCopy.length)
     
     arrayCopy.splice(r, 1);
-     console.log(r);
+    console.log(r);
 }
 
 function speakWord(word) {
@@ -196,6 +198,7 @@ function clearScreen() {
     }
     clearInterval(timerId);
     clearInterval(countDownTimerId);
+    result = 0;
 }
 
 function addStageClass () {
@@ -205,4 +208,25 @@ function addStageClass () {
 
 function startStageTwo() {
     console.log("Stage 2 started")
+    startCount();
+    setMole();
+    addMoleClass();
 }
+
+function setMole() {
+    arrayCopy = [].concat(germanNumbers);
+    let square = getRandomSquare();
+    assignPhrase(square);
+}
+
+function getRandomSquare() {
+    let randomSquare = squares[Math.floor(Math.random() * 4)];
+    return randomSquare;
+}
+
+function addMoleClass() {
+    for (let square of squares) {
+        square.classList.add('mole');
+    }
+}
+    
