@@ -174,6 +174,20 @@ function addNextListener(next) {
 
 }
 
+// Next Level Functions
 function nextLevel() {
+clearScreen();
+}
 
+function clearScreen() {
+    timeLeft.textContent = "";
+    score.textContent = "";
+    score.parentElement.style.backgroundColor = "white";
+    engPhrase.textContent = "Ready!";
+    for (let square of squares) {
+        square.classList.remove('mole');
+        square.firstChild.textContent = null;
+    }
+    clearInterval(timerId);
+    clearInterval(countDownTimerId);
 }
