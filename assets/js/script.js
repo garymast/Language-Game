@@ -36,17 +36,21 @@ document.addEventListener("DOMContentLoaded", function () {
     let button = document.getElementById("btn");
 
         button.addEventListener("click", function () {
-            if (this.getAttribute("data-type") === "submit") {
-                console.log("buttonclicked");
-                // checkAnswer();
+            if (this.getAttribute("data-type") === "submit" && this.classList.contains('S2')) {
+                startStageTwo();
                 
-                moveMole();
-                startCount();
-            } ;
+            } else if (this.getAttribute("data-type") === "submit"){
+                startStageOne();
+            }
         });
 
 
 });
+
+function startStageOne() {
+    moveMole();
+    startCount();
+}
 
 function randomSquare() {
     for (let square of squares) {
@@ -168,15 +172,17 @@ function addNextListener(next) {
     next.addEventListener("click", function () {
         if (this.getAttribute("data-type") === "submit") {
             console.log("nextbuttonclicked");
-            nextLevel();
+            nextStage();
         } ;
     });
 
 }
 
-// Next Level Functions
-function nextLevel() {
+// Next Stage Functions
+function nextStage() {
 clearScreen();
+addStageClass();
+// Now user can click on start button will play Stage 2
 }
 
 function clearScreen() {
@@ -190,4 +196,13 @@ function clearScreen() {
     }
     clearInterval(timerId);
     clearInterval(countDownTimerId);
+}
+
+function addStageClass () {
+    let btn = document.getElementById('btn');
+    btn.classList.add('S2');
+}
+
+function startStageTwo() {
+    console.log("Stage 2 started")
 }
