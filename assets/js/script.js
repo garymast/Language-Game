@@ -228,7 +228,7 @@ function allowNext() {
     addNextListener(next);
 }
 
-function addNextListener() {
+function addNextListener(next) {
     next.addEventListener("click", function () {
         if (this.getAttribute("data-type") === "submit") {
             console.log("nextbuttonclicked");
