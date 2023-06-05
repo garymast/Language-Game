@@ -152,6 +152,7 @@ countDownTimerId = setInterval(countDown, 1000);
 }
 
 function countDown() {
+    let button = document.getElementById("btn");
     currentTime--;
     timeLeft.textContent = currentTime;
 
@@ -160,7 +161,17 @@ function countDown() {
         clearInterval(timerId);
 
         setTimeout(function(){
-            alert('Well Done! Final score: ' + result);
+
+            if(button.classList.contains('S2')) {
+                if (result > germanNumbers.length) {
+                    alert('Well Done! Final score: ' + result + '\nYou must signup as a member to unlock further levels, returning to Home');
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Unlucky! Final score: ' + result + '\nBack to the start you go');
+                    window.location.href = 'index.html';         
+                }
+            
+            }
             }, 1000);
         
     }
@@ -237,8 +248,6 @@ function addNextListener(next) {
 }
 
 // Volume Button Event
-
-
     volBtn.addEventListener("click", function () {
         if (this.getAttribute("data-type") === "submit") {
             console.log("volumebuttonclicked");
