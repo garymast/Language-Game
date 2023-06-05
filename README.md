@@ -16,7 +16,7 @@
 	* [Imagery](#Imagery)
 	* [Wireframes](#Wireframes)
 * [Features](#Features)
-* [Technolgy used ](#Technologyused)
+* [Technology used ](#Technologyused)
 * [Testing](#Testing)
     * [Code validation ](#Codevalidation)
     * [Future Iterations ](#Futureiterations)
@@ -24,7 +24,6 @@
     * [Deployment](#Deployment)
 * [Crediations and citataions](#Crediationsandcitataions)
     * [Code used](#Codeused)
-* [Acknowledgments](#Acknowledgments)
 
 
 ---
@@ -126,7 +125,7 @@ My CSS was checked by W3C Validator along with my HTML:
 5. There is nothing that states which level the user is on, or the theme of the level. For exmple - 'Numbers'. This will be introduced in a later release
 
 ## Lighthouse
-![Lighthouse test](add lighthouse test screenshot)
+![Lighthouse test](assets/images/readMe_images/lighthouse.jpg)
 
 ## Deployment
 1. Create a Repository: Start by creating a new repository on GitHub. Click on the "New" button on your GitHub profile page or navigate to your organization's repository page. Give your repository a name and make sure it's set to public.
