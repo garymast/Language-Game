@@ -1,65 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="assets/css/style.css">
-	<title>Learn German</title>
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <title>Learn German</title>
+    </head>
+    <body>
 
-<!-- Splash Screen code starts here  -->
-<div class="splash">
-    <h1 class = "splash-header">READY TO LEARN GERMAN??<br><br><br>There are two stages per level<br><br>stage 1: Learn the words by tapping the popups<br><br>
-        stage 2: Test your knowledge<br><br>Once the score goes green, move to the next stage<br><br><br>Tap anywhere to start</h1>
-  </div>
-    <!-- Splash Screen code ends here  -->
-    
-    <div id="bg">
-	<div class="container">
-        <div id="header">
+    <!-- Splash Screen code starts here  -->
+    <div class="splash">
+        <h1 class = "splash-header">READY TO LEARN GERMAN??<br><br><br>There are two stages per level<br><br>stage 1: Learn the words by tapping the popups<br><br>
+            stage 2: Test your knowledge<br><br>Once the score goes green, move to the next stage<br><br><br>Tap anywhere to start</h1>
+    </div>
+        <!-- Splash Screen code ends here  -->
+        
+        <div id="bg">
+        <div class="container">
+            <div id="header">
 
-        <div class ="top-box smallLine" id="score-container">
-            <h3>Score:</h3>
-			<h2 id="score">0</h2>
-		</div>
-	
-        <div class ="top-box smallLine" id="time-container">
-        <h3>Time Left:</h3>
-        <h2 id="time-left"></h2> 
-        <!-- Change Start Time Here -->
+            <div class ="top-box smallLine" id="score-container">
+                <h3>Score:</h3>
+                <h2 id="score">0</h2>
+            </div>
+        
+            <div class ="top-box smallLine" id="time-container">
+            <h3>Time Left:</h3>
+            <h2 id="time-left"></h2> 
+
+                </div>
+
+                <div class ="top-box bigLine" id="eng-phrase-box">
+                    <!-- <h3>Word to Find:</h3> -->
+                    <h1 id="eng-phrase">Ready!</h1>
+                </div>
+                
             </div>
 
-            <div class ="top-box bigLine" id="eng-phrase-box">
-                <!-- <h3>Word to Find:</h3> -->
-                <h1 id="eng-phrase">Ready!</h1>
+            <div class="grid" id="grid-square">
+                <div class="square" id="s1"><h3></h3></div>
+                <div class="square" id="s2"><h3></h3></div>
+                <div class="square" id="s3"><h3></h3></div>
+                <div class="square" id="s4"><h3></h3></div>
             </div>
-            
-        </div>
+        
+            <a href="index.html"><button class="but" id="home-btn" data-type="submit"><i class="fa-solid fa-house"></i></button></a>
+            <button class="but" id="btn" data-type="submit"><i class="fa-solid fa-circle-play"></i></button>
+            <button class="but" id="next-btn" data-type="submit"><i class="fa-solid fa-forward-step"></i></button>
+            <button class="but" id="vol-btn" data-type="submit"><i class="fa-solid fa-volume-low"></i></button>
 
-		<div class="grid" id="grid-square">
-			<div class="square" id="s1"><h3></h3></div>
-			<div class="square" id="s2"><h3></h3></div>
-			<div class="square" id="s3"><h3></h3></div>
-            <div class="square" id="s4"><h3></h3></div>
-		</div>
-	
-        <a href="index.html"><button class="but" id="home-btn" data-type="submit"><i class="fa-solid fa-house"></i></button></a>
-        <button class="but" id="btn" data-type="submit"><i class="fa-solid fa-circle-play"></i></button>
-        <button class="but" id="next-btn" data-type="submit"><i class="fa-solid fa-forward-step"></i></button>
-        <button class="but" id="vol-btn" data-type="submit"><i class="fa-solid fa-volume-low"></i></button>
+        </section>
 
-	</section>
+    </div>
+    </div>
+    <!-- font awesome script -->
+    <script src="https://kit.fontawesome.com/00ff89d843.js" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js" defer></script>
 
-	<!-- <footer>
-		<p>LearnGerman.org</p>
-	</footer> -->
-</div>
-</div>
-<!-- font awesome script -->
-<script src="https://kit.fontawesome.com/00ff89d843.js" crossorigin="anonymous"></script>
-<script src="assets/js/script.js" defer></script>
-
-</body>
-</html>
+    </body>
+    </html>

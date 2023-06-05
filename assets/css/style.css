@@ -1,155 +1,149 @@
-@import url('https://fonts.googleapis.com/css2?family=Voces&display=swap');
-/* container */
-body {
-    text-align: center;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family:'Voces', sans-serif;
-    letter-spacing: 2px;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Voces&display=swap');
+    /* container */
+    body {
+        text-align: center;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family:'Voces', sans-serif;
+        letter-spacing: 2px;
+    }
 
-/* Splash Screen Start */
-  .splash{
-    cursor : pointer;
-    position : fixed;
-    top : 50%;
-    left : 50%;
-    height : 95%;
-    width : 95%;
-    transform : translate(-50%,-50%);    
-    background: linear-gradient(rgba(0, 0, 0, 0.9) 33.333%, rgba(255, 0, 0, 0.9) 33.33% 66.666%, rgba(255, 204, 0, 0.9) 66.666%);
-    transition : all ease-in-out 600ms;
-  }
-  .hidden{
-    transition : 0.5s;
-    display : none;
-  }
-  
-  .splash-header {
-    height : 90%;
-    color : white;
-    font-family : consolas;
-    font-size : 20px;
-    display : flex;
-    justify-content: center;
-    align-items : center;
-    padding: 5%;
-  }
- 
-
-  /* End Splash Screen Code */
-
-h1 {
-    margin : 0;
-    font-size: 300%;
-    letter-spacing: 3px;
-    text-transform:uppercase;
-}
-
-h2, h3 {
-    margin : 0;
-    text-transform: capitalize;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-.container {
-    margin: 0 auto;
-    max-width: 960px;
-    /* background-color: white;   */
-    /* margin: 0 15px; */
-}
-
-#header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.top-box{
-    height: 100px;
+    /* Splash Screen Start */
+    .splash{
+        cursor : pointer;
+        position : fixed;
+        top : 50%;
+        left : 50%;
+        height : 95%;
+        width : 95%;
+        transform : translate(-50%,-50%);    
+        background: linear-gradient(rgba(0, 0, 0, 0.9) 33.333%, rgba(255, 0, 0, 0.9) 33.33% 66.666%, rgba(255, 204, 0, 0.9) 66.666%);
+        transition : all ease-in-out 600ms;
+    }
+    .hidden{
+        transition : 0.5s;
+        display : none;
+    }
     
-    border-radius: 50px;
-    background-color: white;
-    border: solid 1px black;
-    margin-top: 20px;
-}
+    .splash-header {
+        height : 90%;
+        color : white;
+        font-family : consolas;
+        font-size : 20px;
+        display : flex;
+        justify-content: center;
+        align-items : center;
+        padding: 5%;
+    }
+    
 
-.smallLine {
-    line-height: 50px;
-}
+    /* End Splash Screen Code */
 
-.bigLine{
-    line-height: 100px;
-}
+    h1 {
+        margin : 0;
+        font-size: 300%;
+        letter-spacing: 3px;
+        text-transform:uppercase;
+    }
 
-#eng-phrase-box {
-    width: 100%;
-}
+    h2, h3 {
+        margin : 0;
+        text-transform: capitalize;
+    }
 
-#score-container, #time-container {
-    width: 45%;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-.grid {
-    text-align: center;
-    padding-bottom: 20px;
-}
+    .container {
+        margin: 0 auto;
+        max-width: 960px;
+    }
 
+    #header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
-/* columns */
-.grid > * {
-    /* text-orientation: upright; */
-    margin-top: 20px;
-    background-color: white;
-    border-radius: 37.5px;
-    color: white;
-    font-size: 150%;
-}
+    .top-box{
+        height: 100px;
+        border-radius: 50px;
+        background-color: white;
+        border: solid 1px black;
+        margin-top: 20px;
+    }
 
-.square {
-    border: solid 1px black;
-    height: 75px;
-    line-height: 75px;
-    cursor: pointer;
-}
+    .smallLine {
+        line-height: 50px;
+    }
 
-.score-area {
-    background-color: lightcyan;
-}
+    .bigLine{
+        line-height: 100px;
+    }
 
-#bg {
-    height: 100vh;
-    background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('../images/bavaria_001.jpg') repeat center center;
-    background-size: 40vh;
-    padding: 0px 20px 0 20px;
-}
+    #eng-phrase-box {
+        width: 100%;
+    }
 
-.mole {
-    background: linear-gradient(#000 33.333%, #FF0000 33.33% 66.666%, #FFCC00 66.666%);
-}
+    #score-container, #time-container {
+        width: 45%;
+    }
 
-i {
-    font-size: 425%;
-    /* margin: 1%;
-    padding: 5%; */
-    color: #59d259;
-}
+    .grid {
+        text-align: center;
+        padding-bottom: 20px;
+    }
 
 
-.but {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
+    /* columns */
+    .grid > * {
+        margin-top: 20px;
+        background-color: white;
+        border-radius: 37.5px;
+        color: white;
+        font-size: 150%;
+    }
 
-#next-btn {
-    cursor: not-allowed;
-}
+    .square {
+        border: solid 1px black;
+        height: 75px;
+        line-height: 75px;
+        cursor: pointer;
+    }
 
-#next-btn i{
-    color: grey;
-}
+    .score-area {
+        background-color: lightcyan;
+    }
+
+    #bg {
+        height: 100vh;
+        background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('../images/bavaria_001.jpg') repeat center center;
+        background-size: 40vh;
+        padding: 0px 20px 0 20px;
+    }
+
+    .mole {
+        background: linear-gradient(#000 33.333%, #FF0000 33.33% 66.666%, #FFCC00 66.666%);
+    }
+
+    i {
+        font-size: 425%;
+        color: #59d259;
+    }
+
+
+    .but {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    #next-btn {
+        cursor: not-allowed;
+    }
+
+    #next-btn i{
+        color: grey;
+    }
