@@ -16,6 +16,16 @@
 	* [Imagery](#Imagery)
 	* [Wireframes](#Wireframes)
 * [Features](#Features)
+* [Technolgy used ](#Technologyused)
+* [Testing](#Testing)
+    * [Code validation ](#Codevalidation)
+    * [Issues I ran into ](#Issuesiraninto)
+    * [Lighthouse](#Lighthouse)
+    * [Deployment](#Deployment)
+* [Crediations and citataions](#Crediationsandcitataions)
+    * [Images](#Images)
+    * [Code used](#Codeused)
+* [Acknowledgments](#Acknowledgments)
 
 
 ---
@@ -53,19 +63,55 @@ I used Microsoft Word to create a basic Wireframe, which didn't change much thro
 ## Features
 1. Home/landing page
 
-![home landing page](assets/images/readMe_images/Landing_Page.jpg)
+![Home landing page](assets/images/readMe_images/Landing_Page.jpg)
 
 2. First Level Page
 
-![level select](assets/images/readMe_images/Game_Ready.jpg)
+![Level select](assets/images/readMe_images/Game_Ready.jpg)
 
 3. Stage 1 During Game
 
-![display quiz](assets/images/readMe_images/Stage_One.jpg)
+![During Stage 1](assets/images/readMe_images/Stage_One.jpg)
 
 4. Stage 2 During Game
 
-![end quiz](assets/images/readMe_images/Stage_Two.jpg)
+![During Stage 2](assets/images/readMe_images/Stage_Two.jpg)
+
+# Technology Used
+This project primarily relies on JavaScript (JS) to build a dynamic and interactive web application. While HTML and CSS are still utilized, the main focus and driving force behind this project is the extensive use of JavaScript. Here's an overview of how these technologies are employed:
+
+## JavaScript (JS)
+JavaScript is a powerful programming language that enables the creation of interactive and dynamic web applications. In this project, JS takes center stage and serves as the primary technology used for development. It allows you to handle user interactions, manipulate HTML elements, perform calculations, make HTTP requests, and dynamically update the content of the web page. JS plays a vital role in enhancing the user experience and adding functionality to the application.
+
+## HTML (Hypertext Markup Language)
+HTML is the standard markup language used for structuring the content of web pages. While the focus of this project is on JavaScript, HTML is still necessary to create the basic structure and layout of the web application. It defines the various elements such as headings, paragraphs, links, images, and forms that make up the user interface. HTML provides the foundation for organizing and presenting the content in a logical and hierarchical manner.
+
+## CSS (Cascading Style Sheets)
+CSS is a stylesheet language that is responsible for the presentation and styling of web pages. In this project, CSS is used to enhance the visual design and aesthetics of the web application. While the main emphasis lies on JavaScript, CSS still plays a significant role in customizing the appearance of the HTML elements. By applying CSS styles, you can create a visually appealing and consistent user interface.
+
+While HTML and CSS are utilized in this project, the primary focus is on JavaScript. JavaScript enables the creation of a dynamic and interactive web application, allowing for enhanced user experiences and added functionality. By leveraging the power of JavaScript, you can build robust web applications that meet diverse requirements and cater to user needs.
+
+# Testing
+| User interaction | Does the function work as intended? (Yes/No) | Why? |
+|:---:|:---:|---|
+| User clicks anywhere to remove splash screen  | Yes | |
+| User clicks the play button to start a game | Yes | |
+| The home button returns to the splash screen | Yes | |
+| The volume icon turns the volume on? off | Yes | |
+| Countdown timer tracks remaining time | Yes | |
+| The score is kept updated | Yes | |
+| The next button takes the user to the next stage | Yes | |
+| Final score is shown with correct message | Yes | |
+| Selections turn green where correct | Yes | |
+
+# js logic flow chart 
+![jslogic flow chart](assets/images/readMe_images/JS_Logic_Flow.jpg)
+
+## Code Validation
+
+I used JSHint to check and validate my code throughout the project:
+
+
 
 
 Whac a mole tutorial youtube tutorial
