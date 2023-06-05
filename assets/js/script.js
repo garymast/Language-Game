@@ -1,13 +1,11 @@
 
-let squares = document.getElementsByClassName("square");
-let mole = document.getElementsByClassName("mole");
-let timeLeft = document.getElementById("time-left");
-let score = document.getElementById("score");
-let engPhrase = document.getElementById("eng-phrase");
-let volBtn = document.getElementById('vol-btn');
+const squares = document.getElementsByClassName("square");
+const timeLeft = document.getElementById("time-left");
+const score = document.getElementById("score");
+const engPhrase = document.getElementById("eng-phrase");
+const volBtn = document.getElementById('vol-btn');
 volBtn.classList.add('on');
 const synth = window.speechSynthesis;
-const voices = [];
 let startTime = 30;
 
 let result = 0;
@@ -35,7 +33,7 @@ let germanNumbers = [
     ["eight",["Acht"]],
     ["nine",["Neun"]],
     ["ten",["Zehn"]]    
-]
+];
 
 document.addEventListener("DOMContentLoaded", function () {
     let button = document.getElementById("btn");
@@ -72,10 +70,10 @@ function randomSquare() {
         hitPosition = randomSquare.id;
         // Ensure that the random square isn't the previous mole square
         lastHit = randomSquare.id;
-        assignPhrase(randomSquare, "DE")
+        assignPhrase(randomSquare, "DE");
         break;
 } else {
-    console.log("Same - Loop Again")
+    console.log("Same - Loop Again");
 }
 }
 }
@@ -100,7 +98,7 @@ for (let square of squares) {
             setTimeout(function(){
             addWhiteSquare(square);
             NextSet();
-            console.log("executed")
+            console.log("executed");
             }, 300);
             
         } 
@@ -117,7 +115,7 @@ for (let square of squares) {
             setTimeout(function(){
             addWhiteSquare(square);
             NextSet();
-            console.log("executed")
+            console.log("executed");
             }, 300);
         }
         
@@ -128,7 +126,7 @@ for (let square of squares) {
             hitPosition = null;
             if (result >= germanNumbers.length) {
                 score.parentElement.style.backgroundColor = "#59d259";
-                console.log("<=length")
+                console.log("<=length");
                 allowNext();
         }
     }
@@ -141,7 +139,7 @@ function moveMole() {
     // Array = Array doesn't make a copy, just a reference to same object
     arrayCopy = [].concat(germanNumbers);
     clearInterval(timerId);
-    timerId = setInterval(randomSquare, 1500)
+    timerId = setInterval(randomSquare, 1500);
 }
 
 
@@ -162,7 +160,7 @@ function countDown() {
         clearInterval(timerId);
 
         setTimeout(function(){
-            alert('Well Done! Final score: ' + result)
+            alert('Well Done! Final score: ' + result);
             }, 1000);
         
     }
@@ -179,11 +177,11 @@ function assignPhrase(square, speak) {
     }
 
     // genre.sort();
-    let r = Math.floor(Math.random()*arrayCopy.length)
+    let r = Math.floor(Math.random()*arrayCopy.length);
 
     engPhrase.textContent = arrayCopy[r][0];
     square.firstChild.textContent = arrayCopy[r][1];
-    console.log("square contents are:" + square.firstChild.textContent)
+    console.log("square contents are:" + square.firstChild.textContent);
     
     if (speak == "DE") {
     speakWord(arrayCopy[r][1]);
@@ -191,7 +189,7 @@ function assignPhrase(square, speak) {
         // speakWord(arrayCopy[r][0]);
     }
     
-    console.log(arrayCopy.length)
+    console.log(arrayCopy.length);
     
     arrayCopy.splice(r, 1);
     console.log(r);
@@ -201,11 +199,11 @@ function speakWord(word) {
 
         const utterThis = new SpeechSynthesisUtterance(word);
         if (volBtn.classList.contains('on')) {
-            console.log("Volume on")
+            console.log("Volume on");
             utterThis.lang = "de-DE";
             // Set to German
             synth.speak(utterThis);
-            console.log("spoken")
+            console.log("spoken");
         } else {
 
         }
@@ -217,9 +215,9 @@ var splashScreen = document.querySelector('.splash');
 splashScreen.addEventListener('click',()=>{
   splashScreen.style.opacity = 0;
   setTimeout(()=>{
-    splashScreen.classList.add('hidden')
-  },610)
-})
+    splashScreen.classList.add('hidden');
+  },610);
+});
 
 function allowNext() {
     let next = document.getElementById('next-btn');
@@ -233,7 +231,7 @@ function addNextListener(next) {
         if (this.getAttribute("data-type") === "submit") {
             console.log("nextbuttonclicked");
             nextStage();
-        } ;
+        } 
     });
 
 }
@@ -254,7 +252,7 @@ function addNextListener(next) {
                 volBtn.firstChild.classList.add('fa-volume-low');
             }
             
-        } ;
+        } 
     });
 
 
@@ -287,7 +285,7 @@ function addStageClass () {
 }
 
 function startStageTwo() {
-    console.log("Stage 2 started")
+    console.log("Stage 2 started");
     clearScore();
     startCount();
     NextSet();
@@ -329,8 +327,8 @@ function assignOtherSquares(square) {
     let mole = square.firstChild.textContent;
     let word;
 
-    for (i=0 ; i<=2 ; i++) {
-        let r = Math.floor(Math.random()*arrayCopy.length)
+    for (let i=0 ; i<=2 ; i++) {
+        let r = Math.floor(Math.random()*arrayCopy.length);
         word = germanNumbers[r][1];
         if (mole == word) {
             console.log('same - look again');
