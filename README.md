@@ -114,8 +114,8 @@ I used JSHint to check and validate my code throughout the project:
 
 My CSS was checked by W3C Validator along with my HTML:
 
-![CSS check](add CSS image)
-![HTML check](add html image)
+![CSS check](assets/images/readMe_images/CSS_Pass.jpg)
+![HTML check](assets/images/readMe_images/HTML_Pass.jpg)
 
 ## Future Iterations
 
