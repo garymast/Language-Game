@@ -4,6 +4,8 @@ let mole = document.getElementsByClassName("mole");
 let timeLeft = document.getElementById("time-left");
 let score = document.getElementById("score");
 let engPhrase = document.getElementById("eng-phrase");
+let volBtn = document.getElementById('vol-btn');
+volBtn.classList.add('on');
 const synth = window.speechSynthesis;
 const voices = [];
 let startTime = 30;
@@ -198,10 +200,17 @@ function assignPhrase(square, speak) {
 function speakWord(word) {
 
         const utterThis = new SpeechSynthesisUtterance(word);
-        utterThis.lang = "de-DE";
-        // Set to German
-        synth.speak(utterThis);
-        console.log("spoken")
+        if (volBtn.classList.contains('on')) {
+            console.log("Volume on")
+            utterThis.lang = "de-DE";
+            // Set to German
+            synth.speak(utterThis);
+            console.log("spoken")
+        } else {
+
+        }
+
+
 }
 
 var splashScreen = document.querySelector('.splash');
@@ -219,7 +228,7 @@ function allowNext() {
     addNextListener(next);
 }
 
-function addNextListener(next) {
+function addNextListener() {
     next.addEventListener("click", function () {
         if (this.getAttribute("data-type") === "submit") {
             console.log("nextbuttonclicked");
@@ -228,6 +237,26 @@ function addNextListener(next) {
     });
 
 }
+
+// Volume Button Event
+
+
+    volBtn.addEventListener("click", function () {
+        if (this.getAttribute("data-type") === "submit") {
+            console.log("volumebuttonclicked");
+            if (volBtn.classList.contains('on')) {
+                volBtn.classList.remove('on');
+                volBtn.firstChild.classList.remove('fa-volume-low');
+                volBtn.firstChild.classList.add('fa-volume-xmark');
+            } else {
+                volBtn.classList.add('on');
+                volBtn.firstChild.classList.remove('fa-volume-xmark');
+                volBtn.firstChild.classList.add('fa-volume-low');
+            }
+            
+        } ;
+    });
+
 
 // Next Stage Functions
 function nextStage() {
@@ -346,3 +375,4 @@ function addRedSquare(square) {
     console.log("called green Remove");
 }
 
+{/* <i class="fa-solid fa-volume-xmark"></i> */}
