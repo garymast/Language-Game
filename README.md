@@ -19,11 +19,10 @@
 * [Technolgy used ](#Technologyused)
 * [Testing](#Testing)
     * [Code validation ](#Codevalidation)
-    * [Issues I ran into ](#Issuesiraninto)
+    * [Future Iterations ](#Futureiterations)
     * [Lighthouse](#Lighthouse)
     * [Deployment](#Deployment)
 * [Crediations and citataions](#Crediationsandcitataions)
-    * [Images](#Images)
     * [Code used](#Codeused)
 * [Acknowledgments](#Acknowledgments)
 
@@ -111,16 +110,41 @@ While HTML and CSS are utilized in this project, the primary focus is on JavaScr
 
 I used JSHint to check and validate my code throughout the project:
 
+![JSHint](assets/images/readMe_images/JS_Hint.jpg)
 
+My CSS was checked by W3C Validator along with my HTML:
 
+![CSS check](add CSS image)
+![HTML check](add html image)
 
-Whac a mole tutorial youtube tutorial
-https://www.youtube.com/watch?v=rJU3tHLgb_c
+## Future Iterations
 
-bavaria background image <a href="https://www.freepik.com/free-vector/oktoberfest-blue-seamless-rhombus-background-vector-illustration_24450729.htm#query=bavaria%20pattern&position=0&from_view=keyword&track=ais">Image by svstudioart</a> on Freepik
+1. The UI needs a huge overhaul. The styling is not that eye catching, paticularly on larger screens
+2. In stage 2, there is no check to ensure that words aren't repeated. This will be introduced in future releases.
+3. I initially hoped to have better animation to make the game a bit more fun, this will be introduced later
+4. There will be additional levels later on, including learning full German phrases
+5. There is nothing that states which level the user is on, or the theme of the level. For exmple - 'Numbers'. This will be introduced in a later release
 
-Love Maths walkthrough
+## Lighthouse
+![Lighthouse test](add lighthouse test screenshot)
 
-https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API
+## Deployment
+1. Create a Repository: Start by creating a new repository on GitHub. Click on the "New" button on your GitHub profile page or navigate to your organization's repository page. Give your repository a name and make sure it's set to public.
+2. Add Files to the Repository: Add your website files to the repository. You can either initialize the repository with a README file or manually upload your HTML, CSS, JavaScript, and other necessary files. Ensure that your main HTML file is named index.html.
+3. Enable GitHub Pages: On your repository page, navigate to the "Settings" tab. Scroll down to the "GitHub Pages" section. Under "Source," select the branch you want to deploy. If your site is in the root directory, choose the main branch. If your site is in a specific folder, choose the main branch and specify the folder path. Click on the "Save" button.
+4. Verify Deployment: After saving, GitHub Pages will provide you with a link to your deployed site. It might take a few minutes for the deployment to complete. Visit the provided link to verify that your site is deployed correctly.
+5. Custom Domain (Optional): If you want to use a custom domain for your GitHub Pages site, you can set it up in the "Custom Domain" section of your repository's "Settings" tab. Follow the instructions provided by GitHub to configure your custom domain.
+6. Update and Redeploy: Whenever you make changes to your website files, commit and push them to the repository. GitHub Pages will automatically redeploy the updated site. Ensure that your changes are pushed to the correct branch specified in the GitHub Pages settings.
 
-https://dev.to/saikatbishal/how-to-make-a-splash-screen-using-html-css-and-javascript-240m
+# Credits and Citations
+1. I watched this [Whac-a-Mole by Ania Kubow]("https://www.youtube.com/watch?v=rJU3tHLgb_c") tutorial on Youtube to achieve a moving 'mole' .
+2. I used the Love Maths walkthrough to assist in general with event listeners etc.
+3. Background image was sourced from [Image by svstudioart on Freepik]("https://www.freepik.com/free-vector/oktoberfest-blue-seamless-rhombus-background-vector-illustration_24450729.htm#query=bavaria%20pattern&position=0&from_view=keyword&track=ais").
+4. I used this [Splash Screen Tutorial]("https://dev.to/saikatbishal/how-to-make-a-splash-screen-using-html-css-and-javascript-240m") tutorial to help with the splash screen.
+5. I used this [Web Speech API Tutorial]("https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API") tutorial to help with the text to speech.
+6. While I didn't ask any questions myself, the general conversation in the team Slack channel provided me with huge amount lot of hints and tips
+
+## Code Used
+All code is my own, with the exception of the citations above.
+
+# Thank You!
